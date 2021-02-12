@@ -28,13 +28,13 @@ An overview of the nuclei template directory including number of templates assoc
 
 | Templates       | Counts                          | Templates        | Counts                         |
 | --------------- | ------------------------------- | ---------------- | ------------------------------ |
-| cves            | 175            | default-logins   | 8 |
+| cves            | 176            | default-logins   | 8 |
 | dns             | 6               | exposed-panels   | 74   |
 | exposed-tokens  | 9  | exposures        | 43      |
 | fuzzing         | 4           | helpers          | 2        |
 | miscellaneous   | 12     | misconfiguration | 40 |
 | takeovers       | 1         | technologies     | 45     |
-| vulnerabilities | 80 | workflows        | 18        |
+| vulnerabilities | 81 | workflows        | 18        |
 
 
 **Tree structure of nuclei templates:**
@@ -188,6 +188,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2020-24223.yaml
 │   │   ├── CVE-2020-24312.yaml
 │   │   ├── CVE-2020-24579.yaml
+│   │   ├── CVE-2020-25213.yaml
 │   │   ├── CVE-2020-2551.yaml
 │   │   ├── CVE-2020-25540.yaml
 │   │   ├── CVE-2020-26214.yaml
@@ -565,7 +566,6 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── sick-beard-xss.yaml
 │   │   ├── sonicwall-sslvpn-shellshock.yaml
 │   │   ├── symantec-messaging-gateway.yaml
-│   │   ├── thinkcmf-lfi.yaml
 │   │   ├── thinkific-redirect.yaml
 │   │   ├── tikiwiki-reflected-xss.yaml
 │   │   ├── twig-php-ssti.yaml
@@ -579,6 +579,9 @@ An overview of the nuclei template directory including number of templates assoc
 │   ├── springboot
 │   │   ├── springboot-actuators-jolokia-xxe.yaml
 │   │   └── springboot-h2-db-rce.yaml
+│   ├── thinkcmf
+│   │   ├── thinkcmf-lfi.yaml
+│   │   └── thinkcmf-rce.yaml
 │   ├── thinkphp
 │   │   ├── thinkphp-2-rce.yaml
 │   │   ├── thinkphp-5022-rce.yaml
@@ -628,7 +631,7 @@ An overview of the nuclei template directory including number of templates assoc
 
 </details>
 
-**55 directories, 526 files**.
+**56 directories, 528 files**.
 
 📖 Documentation
 -----
