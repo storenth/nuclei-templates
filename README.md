@@ -28,13 +28,13 @@ An overview of the nuclei template directory including number of templates assoc
 
 | Templates       | Counts                          | Templates        | Counts                         |
 | --------------- | ------------------------------- | ---------------- | ------------------------------ |
-| cves            | 177            | default-logins   | 8 |
+| cves            | 189            | default-logins   | 10 |
 | dns             | 6               | exposed-panels   | 74   |
 | exposed-tokens  | 9  | exposures        | 45      |
 | fuzzing         | 4           | helpers          | 2        |
-| miscellaneous   | 12     | misconfiguration | 40 |
+| miscellaneous   | 12     | misconfiguration | 43 |
 | takeovers       | 1         | technologies     | 45     |
-| vulnerabilities | 81 | workflows        | 18        |
+| vulnerabilities | 86 | workflows        | 19        |
 
 
 **Tree structure of nuclei templates:**
@@ -54,12 +54,14 @@ An overview of the nuclei template directory including number of templates assoc
 │   ├── 2013
 │   │   └── CVE-2013-2251.yaml
 │   ├── 2014
+│   │   ├── CVE-2014-3120.yaml
 │   │   └── CVE-2014-6271.yaml
 │   ├── 2017
 │   │   ├── CVE-2017-10075.yaml
 │   │   ├── CVE-2017-10271.yaml
 │   │   ├── CVE-2017-11444.yaml
 │   │   ├── CVE-2017-12615.yaml
+│   │   ├── CVE-2017-12635.yaml
 │   │   ├── CVE-2017-12637.yaml
 │   │   ├── CVE-2017-14537.yaml
 │   │   ├── CVE-2017-14849.yaml
@@ -94,6 +96,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2018-5230.yaml
 │   │   ├── CVE-2018-7251.yaml
 │   │   ├── CVE-2018-7490.yaml
+│   │   ├── CVE-2018-7600.yaml
 │   │   ├── CVE-2018-8006.yaml
 │   │   └── CVE-2018-8033.yaml
 │   ├── 2019
@@ -156,6 +159,10 @@ An overview of the nuclei template directory including number of templates assoc
 │   ├── 2020
 │   │   ├── CVE-2020-0618.yaml
 │   │   ├── CVE-2020-10148.yaml
+│   │   ├── CVE-2020-10546.yaml
+│   │   ├── CVE-2020-10547.yaml
+│   │   ├── CVE-2020-10548.yaml
+│   │   ├── CVE-2020-10549.yaml
 │   │   ├── CVE-2020-11034.yaml
 │   │   ├── CVE-2020-1147.yaml
 │   │   ├── CVE-2020-11710.yaml
@@ -183,6 +190,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2020-17519.yaml
 │   │   ├── CVE-2020-17530.yaml
 │   │   ├── CVE-2020-1943.yaml
+│   │   ├── CVE-2020-2036.yaml
 │   │   ├── CVE-2020-2096.yaml
 │   │   ├── CVE-2020-2140.yaml
 │   │   ├── CVE-2020-23972.yaml
@@ -193,6 +201,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2020-2551.yaml
 │   │   ├── CVE-2020-25540.yaml
 │   │   ├── CVE-2020-26214.yaml
+│   │   ├── CVE-2020-27982.yaml
 │   │   ├── CVE-2020-27986.yaml
 │   │   ├── CVE-2020-3187.yaml
 │   │   ├── CVE-2020-3452.yaml
@@ -204,6 +213,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2020-5412.yaml
 │   │   ├── CVE-2020-5776.yaml
 │   │   ├── CVE-2020-5777.yaml
+│   │   ├── CVE-2020-5847.yaml
 │   │   ├── CVE-2020-5902.yaml
 │   │   ├── CVE-2020-6287.yaml
 │   │   ├── CVE-2020-7209.yaml
@@ -222,9 +232,11 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── CVE-2020-9047.yaml
 │   │   ├── CVE-2020-9344.yaml
 │   │   ├── CVE-2020-9376.yaml
+│   │   ├── CVE-2020-9425.yaml
 │   │   ├── CVE-2020-9484.yaml
 │   │   ├── CVE-2020-9496.yaml
-│   │   └── CVE-2020-9757.yaml
+│   │   ├── CVE-2020-9757.yaml
+│   │   └── CVE-2020–26073.yaml
 │   └── 2021
 │       ├── CVE-2021-22122.yaml
 │       ├── CVE-2021-22873.yaml
@@ -242,10 +254,14 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   └── tomcat-manager-default.yaml
 │   ├── grafana
 │   │   └── grafana-default-credential.yaml
+│   ├── nps
+│   │   └── nps-default-password.yaml
 │   ├── ofbiz
 │   │   └── ofbiz-default-credentials.yaml
 │   ├── rabbitmq
 │   │   └── rabbitmq-default-admin.yaml
+│   ├── samsung
+│   │   └── samsung-wlan-ap-default-credentials.yaml
 │   ├── solarwinds
 │   │   └── solarwinds-default-admin.yaml
 │   └── zabbix
@@ -439,12 +455,14 @@ An overview of the nuclei template directory including number of templates assoc
 │   ├── exposed-service-now.yaml
 │   ├── front-page-misconfig.yaml
 │   ├── hadoop-unauth.yaml
+│   ├── jboss-status.yaml
 │   ├── jkstatus-manager.yaml
 │   ├── jupyter-ipython-unauth.yaml
 │   ├── kubernetes-pods.yaml
 │   ├── larvel-debug.yaml
 │   ├── linkerd-ssrf-detect.yaml
 │   ├── manage-engine-ad-search.yaml
+│   ├── mikrotik-graph.yaml
 │   ├── misconfigured-docker.yaml
 │   ├── nginx-status.yaml
 │   ├── php-errors.yaml
@@ -466,6 +484,7 @@ An overview of the nuclei template directory including number of templates assoc
 │   ├── tomcat-scripts.yaml
 │   ├── unauthenticated-airflow.yaml
 │   ├── unauthenticated-nacos-access.yaml
+│   ├── unauthenticated-prtg.yaml
 │   ├── wamp-xdebug-detect.yaml
 │   └── zenphoto-installation-sensitive-info.yaml
 ├── takeovers
@@ -521,8 +540,8 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── basic-cors.yaml
 │   │   ├── basic-xss-prober.yaml
 │   │   ├── crlf-injection.yaml
-│   │   ├── top-xss-params.yaml
-│   │   └── url-redirect.yaml
+│   │   ├── open-redirect.yaml
+│   │   └── top-xss-params.yaml
 │   ├── ibm
 │   │   ├── eclipse-help-system-xss.yaml
 │   │   └── ibm-infoprint-directory-traversal.yaml
@@ -561,7 +580,9 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   ├── mida-eframework-xss.yaml
 │   │   ├── nginx-module-vts-xss.yaml
 │   │   ├── nuuo-nvrmini2-rce.yaml
+│   │   ├── oa-tongda-path-traversal.yaml
 │   │   ├── pdf-signer-ssti-to-rce.yaml
+│   │   ├── powercreator-cms-rce.yaml
 │   │   ├── rce-shellshock-user-agent.yaml
 │   │   ├── rce-via-java-deserialization.yaml
 │   │   ├── rconfig-rce.yaml
@@ -579,6 +600,10 @@ An overview of the nuclei template directory including number of templates assoc
 │   │   └── zms-auth-bypass.yaml
 │   ├── rails
 │   │   └── rails6-xss.yaml
+│   ├── samsung
+│   │   ├── samsung-wlan-ap-lfi.yaml
+│   │   ├── samsung-wlan-ap-rce.yaml
+│   │   └── samsung-wlan-ap-xss.yaml
 │   ├── springboot
 │   │   ├── springboot-actuators-jolokia-xxe.yaml
 │   │   └── springboot-h2-db-rce.yaml
@@ -623,6 +648,7 @@ An overview of the nuclei template directory including number of templates assoc
     ├── mida-eframework-workflow.yaml
     ├── netsweeper-workflow.yaml
     ├── rabbitmq-workflow.yaml
+    ├── samsung-wlan-ap-workflow.yaml
     ├── sap-netweaver-workflow.yaml
     ├── solarwinds-orion-workflow.yaml
     ├── springboot-workflow.yaml
@@ -634,7 +660,7 @@ An overview of the nuclei template directory including number of templates assoc
 
 </details>
 
-**56 directories, 531 files**.
+**59 directories, 554 files**.
 
 📖 Documentation
 -----
