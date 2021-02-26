@@ -1,20 +1,20 @@
-id: harbor-detect
+id: wp-license-file
+
 info:
-  name: Harbor Detect
-  author: pikpikcu
+  name: WordPress license file disclosure
+  author: yashgoti
   severity: info
 
 requests:
   - method: GET
     path:
-      - '{{BaseURL}}/'
+      - "{{BaseURL}}/license.txt"
 
     matchers-condition: and
     matchers:
       - type: word
         words:
-          - "<title>Harbor</title>"
-        part: body
+          - "WordPress - Web publishing software"
 
       - type: status
         status:
