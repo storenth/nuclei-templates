@@ -1,6 +1,6 @@
 id: dell-idrac-default-login
 info:
-  name: Dll iDRAC Default login
+  name: Dell iDRAC6/7/8 Default login
   author: kophjager007
   severity: high
   tags: dell,idrac,dlogin
